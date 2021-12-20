@@ -1,16 +1,14 @@
 package exam.backend.services.CandidateService;
 
 import exam.backend.entities.Candidate;
-import exam.backend.entities.Party;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface CandidateService {
 
   public List<Candidate> findAllCandidates();
 
-  public Candidate findCandidateById(Long id);
+  public List<Candidate> findAllCandidatesByParty(String party);
 
   public void updateCandidateById(Candidate candidate, Long id);
 

@@ -17,12 +17,11 @@ public class CandidateServiceImpl implements CandidateService {
   public List<Candidate> findAllCandidates() { return candidateRepo.findAll(); }
 
   @Override
-  public Candidate findCandidateById(Long id) {
-    return candidateRepo
-            .findById(id)
-            .orElseThrow(
-                    RuntimeException::new);
+  public List<Candidate> findAllCandidatesByParty(String party) {
+    List<Candidate> foundCandidates = candidateRepo.findByParty(party);
+    return foundCandidates;
   }
+
 
   @Override
   public void updateCandidateById(Candidate candidate, Long id) {
@@ -32,12 +31,7 @@ public class CandidateServiceImpl implements CandidateService {
                     RuntimeException::new);
 
     candidateToUpdate.setName(candidate.getName());
-    candidateToUpdate.setBirthDate(candidate.getBirthDate());
-    candidateToUpdate.setPhoneNumber(candidate.getPhoneNumber());
-    candidateToUpdate.setAddress(candidate.getAddress());
     candidateToUpdate.setZip(candidate.getZip());
-    candidateToUpdate.setEmail(candidate.getEmail());
-    candidateToUpdate.setCpr(candidate.getCpr());
 
     candidateRepo.save(candidateToUpdate);
 
