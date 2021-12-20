@@ -1,4 +1,4 @@
-package exam.backend.controllers;
+package exam.backend.controllers.CandidateController;
 
 import exam.backend.entities.Candidate;
 import exam.backend.services.CandidateService.CandidateServiceImpl;
@@ -17,4 +17,11 @@ public class CandidateController implements CandidateControllerInterface {
   public List<Candidate> findAllCandidates() {
     return candidateService.findAllCandidates();
   }
+
+  @Override
+  public void updateCandidateByPartyId(Candidate candidate, Long id) {
+    candidateService.updateCandidateById(candidate, id);
+  }
+
+
 }

@@ -1,7 +1,6 @@
 package exam.backend.services.CandidateService;
 
 import exam.backend.entities.Candidate;
-import exam.backend.entities.Party;
 import exam.backend.repositories.CandidateRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,32 +25,24 @@ public class CandidateServiceImpl implements CandidateService {
   }
 
   @Override
-  public void updateCandidateById(Long id) {
-
-  }
-
-  @Override
-  public void updateCandidatePartyById(Long id, Party party) {
-    Candidate candidate = candidateRepo
-            .findById(id)
-            .orElseThrow(
-                    RuntimeException::new);
-
-    candidate.setParty(party);
-    candidateRepo.save(candidate);
-  }
-
-  @Override
-  public void updateCandidateSloganById(Long id, String string) {
+  public void updateCandidateById(Candidate candidate, Long id) {
     Candidate candidateToUpdate = candidateRepo
             .findById(id)
             .orElseThrow(
                     RuntimeException::new);
 
-    candidateToUpdate.setSlogan(string);
+    candidateToUpdate.setName(candidate.getName());
+    candidateToUpdate.setBirthDate(candidate.getBirthDate());
+    candidateToUpdate.setPhoneNumber(candidate.getPhoneNumber());
+    candidateToUpdate.setAddress(candidate.getAddress());
+    candidateToUpdate.setZip(candidate.getZip());
+    candidateToUpdate.setEmail(candidate.getEmail());
+    candidateToUpdate.setCpr(candidate.getCpr());
+
     candidateRepo.save(candidateToUpdate);
 
   }
+
 
   @Override
   public void addCandidate(Candidate candidate) { candidateRepo.save(candidate); }

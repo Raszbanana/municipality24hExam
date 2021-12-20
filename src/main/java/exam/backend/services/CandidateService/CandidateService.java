@@ -4,6 +4,7 @@ import exam.backend.entities.Candidate;
 import exam.backend.entities.Party;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface CandidateService {
 
@@ -11,11 +12,7 @@ public interface CandidateService {
 
   public Candidate findCandidateById(Long id);
 
-  public void updateCandidateById(Long id);
-
-  public void updateCandidatePartyById(Long id, Party party);
-
-  public void updateCandidateSloganById(Long id, String string);
+  public void updateCandidateById(Candidate candidate, Long id);
 
   public void addCandidate(Candidate candidate);
 
