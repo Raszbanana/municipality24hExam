@@ -11,13 +11,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
 @Getter
 @Setter
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "municipalities", schema = "municipality")
-public class Municipality {
+@Table(name = "parties", schema = "municipality")
+public class Party {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,13 +25,14 @@ public class Municipality {
   private Long id;
 
   @Column(nullable = false)
-  private Long code;
-
-  @Column(nullable = false)
   private String name;
 
-  public Municipality(Long code, String name) {
-    this.code = code;
+  // Letter of the party, like "SF" "A" "V"
+  @Column(nullable = false)
+  private String abbreviation;
+
+  public Party(String name, String abbreviation) {
     this.name = name;
+    this.abbreviation = abbreviation;
   }
 }
