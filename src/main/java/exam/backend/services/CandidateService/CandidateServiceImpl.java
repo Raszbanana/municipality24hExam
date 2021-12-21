@@ -20,25 +20,20 @@ public class CandidateServiceImpl implements CandidateService {
 
   @Override
   public List<Candidate> findAllCandidatesByParty(String party) {
-    List<Candidate> foundCandidates = candidateRepo.findByParty(party);
-    return foundCandidates;
-  }
-
-  @Override
-  public Long getVoteCountByCandidateId(Long id) {
-    return candidateRepo.findById(id).get().getVoteCount();
+    return candidateRepo.findByParty(party);
   }
 
   @Override
   public Long getVoteCountByParty(String party) {
-    int numberOfCandidates = candidateRepo.findAll().size();
+    List<Candidate> numberOfCandidates = candidateRepo.findAll();
     ArrayList<Long> votes = new ArrayList<>();
 
-    for (long i = 1; i < numberOfCandidates + 1; i++) {
-      Optional<Candidate> candidate = candidateRepo.findById(i);
+    for (Candidate candidate : numberOfCandidates) {
+      Long votecount = candidate.getVoteCount();
+      String candidateParty = candidate.getParty();
 
-      if (candidate.get().getParty().equals(party)) {
-        votes.add(candidate.get().getVoteCount());
+      if (candidateParty.equals(party)) {
+        votes.add(votecount);
       }
     }
     long sum = 0;

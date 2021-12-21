@@ -1,6 +1,5 @@
 package exam.backend.controllers.CandidateController;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import exam.backend.entities.Candidate;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.http.HttpStatus;
@@ -21,12 +20,14 @@ public interface CandidateControllerInterface {
   @ApiOperation(
           value = " - Returns all of the Candidates",
           notes = "Execute to retrieve all <b>Candidates</b>."
-  )
-@GetMapping("/candidates")
-public List<Candidate> findAllCandidates();
+  )@GetMapping("/candidates")
+  public List<Candidate> findAllCandidates();
 
   @GetMapping("/{party}")
   public List<Candidate> findAllCandidatesByParty(@PathVariable String party);
+
+  @GetMapping("{party}/vote-count")
+  public Long getVoteCountByParty(@PathVariable String party);
 
   @ApiOperation(
           value = " - Updates a candidate by the his id",

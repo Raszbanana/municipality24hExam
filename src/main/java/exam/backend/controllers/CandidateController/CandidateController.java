@@ -23,6 +23,11 @@ public class CandidateController implements CandidateControllerInterface {
     return candidateService.findAllCandidatesByParty(party);
   }
 
+  @Override
+  public Long getVoteCountByParty(String party) {
+    return candidateService.getVoteCountByParty(party);
+  }
+
 
   @Override
   public void updateCandidateById(Candidate candidate, Long id) {
