@@ -30,6 +30,8 @@ public class Candidate {
 
   private String municipality;
 
+  private Long voteCount = 0l;
+
   public Candidate(String name, String zip, String party, String municipality) {
     this.name = name;
     this.zip = zip;

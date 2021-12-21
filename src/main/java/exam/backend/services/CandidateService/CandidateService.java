@@ -10,6 +10,10 @@ public interface CandidateService {
 
   public List<Candidate> findAllCandidatesByParty(String party);
 
+  public Long getVoteCountByCandidateId(Long id);
+
+  public Long getVoteCountByParty(String party);
+
   public void updateCandidateById(Candidate candidate, Long id);
 
   public void addCandidate(Candidate candidate);

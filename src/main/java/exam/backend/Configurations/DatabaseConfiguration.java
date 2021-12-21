@@ -28,6 +28,7 @@ public class DatabaseConfiguration implements CommandLineRunner {
       candidateService.addCandidate(new Candidate("Søren Wiese", "8305", "Venstre", "Samsø" ));
       candidateService.addCandidate(new Candidate("Anita Elgaard Højholt Olesen", "8305", "Venstre", "Samsø" ));
 
+
     }
   }
 }

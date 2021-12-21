@@ -23,8 +23,9 @@ public class CandidateController implements CandidateControllerInterface {
     return candidateService.findAllCandidatesByParty(party);
   }
 
+
   @Override
-  public void updateCandidateByPartyId(Candidate candidate, Long id) {
+  public void updateCandidateById(Candidate candidate, Long id) {
     candidateService.updateCandidateById(candidate, id);
   }
 
