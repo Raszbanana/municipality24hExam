@@ -26,7 +26,7 @@ public interface CandidateControllerInterface {
   @GetMapping("/{party}")
   public List<Candidate> findAllCandidatesByParty(@PathVariable String party);
 
-  @GetMapping("{party}/vote-count")
+  @GetMapping("{party}/votecount")
   public Long getVoteCountByParty(@PathVariable String party);
 
   @ApiOperation(
